@@ -1,0 +1,82 @@
+
+ @Bean
+            CommandLineRunner commandLineRunner(PersonRepository personRepository) {
+
+                     return  args -> {
+
+
+//                         System.out.println(personRepository.getPersonByName("Toney").get());
+
+
+
+                };
+            }
+
+
+            @Bean
+            CommandLineRunner commandLineRunnerU(PersonServices personServices) {
+            return args->{
+            System.out.println(personServices.updatePers(new Person("Toney","Toney2022","admin","toney.toney")));
+
+        };
+           }
+
+           @Bean
+           CommandLineRunner commandLineRunnerD(PersonServices personServices){
+        return args ->{
+//            if(personServices.findPersByID(105L)){
+//            personServices.deletePs(105L);}
+
+
+
+
+        };
+
+           }
+           //adaugare masini
+           @Bean
+           CommandLineRunner commandLineRunnerAddCars(PersonRepository pr){
+               return args ->{
+                   /*Car c1= new Car("Cielo","gaz",1990,850);
+                   Car c2= new Car("Mazda","motorina",2003,3750);
+
+
+                   Person person =pr.findById(1L).get();
+
+                   person.addCar(c1);
+
+                   person.addCar(c2);
+
+                   pr.save(person);*/
+
+                    Car c3= new Car("BMW X2","benzina",2022,17999);
+
+                   // adagam masina c3 la persoana cu id 5
+                   // 5L -> id-ul 5 de tip Long
+                   Person person =pr.findById(5L).get();
+
+                   person.addCar(c3);
+                   pr.save(person);
+
+               };
+
+           }
+
+
+        //adaugare masini noua pt o anumita persoana cu id specificat
+        @Bean
+        CommandLineRunner commandLineRunnerAddNewCar(PersonServices personServices){
+            return args ->{
+
+                Car c4= new Car("BMW Seria 3","benzina",2002,8999);
+
+                // adagam masina c4 la persoana cu id 4
+
+                personServices.addNewCar(1L,c4);
+
+            };
+
+        }
+
+
+        }
