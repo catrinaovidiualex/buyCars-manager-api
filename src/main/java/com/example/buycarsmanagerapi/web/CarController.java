@@ -29,6 +29,22 @@ public class CarController {
         return new ResponseEntity<>(cars, HttpStatus.ACCEPTED);
     }
 
+    //endpoint pt update masina
+    @PutMapping("/updateCars")
+    public ResponseEntity<Car> UpdateCar(@RequestBody Car car){
+        this.carServices.updateCars(car);
+
+        return new ResponseEntity<>(car, HttpStatus.ACCEPTED);
+    }
+
+    //endpoint stergere masina
+
+    @DeleteMapping("/deleteCar/{id}")
+    public ResponseEntity<Car> deleteC(@PathVariable Long id){
+        this.carServices.deleteCar(id);
+        return null;
+    }
+
 
 
 }

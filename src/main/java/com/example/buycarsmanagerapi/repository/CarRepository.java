@@ -10,8 +10,8 @@ import java.util.Optional;
 
 @Repository
 public interface CarRepository extends JpaRepository<Car,Long> {
-    //filtrare masina dupa marca
+    //filtrare masina dupa id
 
-    @Query(value = "select c from Car c where  c.marca=:marca")
-    Optional<Car> findCarByMarca(String marca);
+    @Query(value = "select c from Car c where  c.id=:id")
+    Optional<Car>findCarById(Long id);
 }

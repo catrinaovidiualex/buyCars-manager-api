@@ -48,8 +48,7 @@ public class PersonServices {
 
     // stergere persoana existenta
     public void deletePs(Long id){
-        Optional<Person> person=personRepository
-                .findById(id);
+        Optional<Person> person=personRepository.findById(id);
         if(person.isPresent()){
             personRepository.deleteById(id);
         }else{
